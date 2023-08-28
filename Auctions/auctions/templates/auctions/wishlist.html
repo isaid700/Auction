@@ -1,0 +1,26 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+<head>
+    <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
+</head>
+
+{% block body %}
+    <h2>Watchlist</h2>
+
+    {% if wishlist_listings %}
+        <div class="listing">
+            {% for listing in wishlist_listings %}
+                <div class="images">
+                    <img src="{{ listing.image }}" alt="{{ listing.title }}" width="300px">
+                </div>
+                <div class="details">
+                    <h3 class="title">{{ listing.title }}</h3>
+                    <p>{{ listing.description }}</p>
+                    <p><a class="nav-link" href="{% url 'listing_details' listing.id %}", >Place Bid</a></p>
+                </div>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Your wishlist is empty.</p>
+    {% endif %}
+{% endblock %}

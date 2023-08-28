@@ -1,0 +1,44 @@
+body {
+    padding: 10px;
+}
+.listing {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .listing .title {
+    font-weight: bold;
+    margin-right: 10px; /* Add some spacing between title and image */
+  }
+  
+  .listing .image {
+    float: left;
+    margin-right: 10px;
+  }
+  
+  .listing.details {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  
+  .listing.details p {
+    margin: 0;
+  }
+  h2{
+    margin-bottom: 80px;
+  }
+  h3{
+    margin-top: 50px;
+  }
+  .nav-link{
+    text-decoration: underline;
+  }
+
+.comment-box textarea {
+    display: inline-block;
+    width: 30%;
+    height: auto;
+    min-height: 1.5em;
+    max-height: 10em;
+    resize: vertical;
+}

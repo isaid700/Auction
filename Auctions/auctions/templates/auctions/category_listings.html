@@ -1,0 +1,24 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+<head>
+    <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
+</head>
+{% block body %}
+    {% if is_empty_category %}
+    <p>No Items In This Category Yet!</p>
+    {% else %}
+    {% for listing in listings %}
+        <h3 class="title">{{ listing.title }}</h3>
+        <div class="listing">
+            <div class="image">
+                <img src="{{ listing.image }}" alt="{{ listing.title }}" width="200px">
+            </div>
+            <div class="details">
+                <p>Description: {{ listing.description }}</p>
+                <p>Current Highest Bid: {{ listing.current_bid }}</p>
+                <p><a class="nav-link" href="{% url 'listing_details' listing.id %}">Place Bid</a></p>
+            </div>
+        </div>
+    {% endfor %}
+    {% endif %}
+{% endblock %}
